@@ -1,3 +1,4 @@
 Django
 pytz
 psycopg2
+djangorestframework
