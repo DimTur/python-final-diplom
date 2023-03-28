@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from my_diplom.ordering_service.views import ProductList
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter
+router.register('products', ProductList)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+] + router.urls

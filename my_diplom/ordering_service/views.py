@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from my_diplom.ordering_service.models import Product
+from my_diplom.ordering_service.serializers import ProductSerializer
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+
+class ProductList(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
