@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from my_diplom.ordering_service.views import ProductList
+from ordering_service.views import ProductViewSet, ShopViewSet, CategoryViewSet, ProductInfoViewSet
 from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter
-router.register('products', ProductList)
+router = DefaultRouter()
+router.register('products', ProductViewSet)
+router.register('shops', ShopViewSet)
+router.register('categories', CategoryViewSet)
+router.register('product_info', ProductInfoViewSet)
 
 
 urlpatterns = [
