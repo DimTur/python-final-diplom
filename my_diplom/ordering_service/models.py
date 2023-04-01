@@ -80,6 +80,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
+    def has_perm(self, perm, obj=None):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_admin
+
     def __str__(self):
         return self.email
 
